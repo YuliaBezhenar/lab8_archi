@@ -52,8 +52,8 @@ Client.findAll = function (result) {
 
 //Зміна запису за id
 Client.update = function (id, cli, result) {
-    connection.query("UPDATE client SET name=? WHERE id = ?",
-        [cli.name, id],
+    connection.query("UPDATE client SET name=?, email=?, contacts=? WHERE id = ?",
+        [cli.name, cli.email, cli.contacts, id],
         function (err, res) {
             if (err) {
                 console.log("ERROR: ", err);
